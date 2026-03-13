@@ -1,0 +1,341 @@
+:root {
+    --main-color: #595654; /* Màu xám từ logo */
+    --accent-color: #d1907b; /* Màu cam nhạt */
+}
+
+body { margin: 0; font-family: Arial, sans-serif; }
+
+/* Header & Topbar */
+.topbar {
+    background: var(--main-color);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 5%;
+    font-size: 13px;
+}
+
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 5%;
+    background: #fff;
+}
+
+.site-logo { height: 80px; }
+
+.search-bar {
+    display: flex;
+    border: 2px solid #eee;
+    border-radius: 30px;
+    padding: 5px 20px;
+    width: 40%;
+}
+
+.search-bar input { border: none; outline: none; width: 100%; }
+
+/* Hiệu ứng lắc lư giỏ hàng */
+@keyframes shake {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(15deg); }
+    50% { transform: rotate(-15deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.cart-wrapper:hover .cart-icon {
+    animation: shake 0.5s ease;
+    color: var(--accent-color);
+}
+
+.cart-wrapper { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+
+/* Menu ngang */
+.navigation { border-bottom: 2px solid var(--accent-color); background: #fff; }
+.navigation ul { display: flex; justify-content: center; list-style: none; padding: 0; }
+.navigation ul li a {
+    padding: 15px 25px;
+    display: block;
+    text-decoration: none;
+    color: var(--main-color);
+    font-weight: bold;
+}
+.navigation ul li a:hover { color: var(--accent-color); }
+
+/* Hero section */
+.hero { text-align: center; padding: 100px 20px; background: #fdfaf9; }
+.btn-primary {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+/* FOOTER STYLE - ĐÃ FIX LỖI HIỂN THỊ CỘT 1 */
+.site-footer {
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 40px 5% 0; /* Tăng padding để thoáng hơn */
+    font-size: 14px;
+    border-top: 3px solid var(--main-color);
+}
+
+.footer-main {
+    padding-bottom: 30px;
+}
+
+.footer-info {
+    display: flex; /* Chuyển từ Grid sang Flex để co giãn tốt hơn */
+    flex-wrap: wrap; 
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Fix lỗi cột 1: Cho phép cột này rộng hơn và không bị cắt chữ */
+.footer-column-1 {
+    flex: 1.5; /* Ưu tiên không gian cho cột thông tin giấy phép */
+    min-width: 250px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+}
+
+/* Căn chỉnh logo và icon mạng xã hội */
+.footer-logo-box {
+    width: 120px;
+    margin-bottom: 15px;
+}
+
+.footer-logo-box img {
+    width: 100%;
+}
+
+.social-icons {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+/* Quan trọng: Fix lỗi dính chữ và mất dòng ở cột 1 */
+.info-text p {
+    margin-bottom: 12px;
+    line-height: 1.6; /* Giãn dòng cho dễ đọc */
+    word-wrap: break-word; /* Tự động xuống dòng khi chữ quá dài */
+    text-align: justify; /* Căn đều hai bên cho chuyên nghiệp */
+}
+
+.info-text b {
+    color: #000;
+}
+
+/* Form đăng ký email */
+.subscribe-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.subscribe-box input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.subscribe-box button {
+    background-color: #4b7bec;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.subscribe-box button:hover {
+    background-color: #3867d6;
+    transform: scale(1.02);
+}
+
+/* Responsive cho điện thoại: Xếp chồng tất cả thành 1 cột */
+@media (max-width: 768px) {
+    .footer-info {
+        flex-direction: column;
+    }
+    .footer-column, .footer-column-1 {
+        width: 100%;
+        min-width: unset;
+    }
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #eee;
+    color: #999;
+    font-size: 12px;
+}
+
+/* Tiêu đề phần dịch vụ */
+.section-title {
+    text-align: center;
+    color: var(--accent-color);
+    margin-top: 50px;
+    font-size: 28px;
+}
+
+/* Lưới dịch vụ */
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 30px 5%;
+}
+
+/* Thẻ dịch vụ */
+.service-card {
+    border: 2px solid #ffcc00; /* Viền vàng giống hình mẫu */
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    background: #fff;
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    box-shadow: 0 5px 15px rgba(255, 204, 0, 0.3);
+}
+
+.service-img img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.service-card h3 {
+    color: #007bff; /* Chữ xanh dương giống mẫu */
+    font-size: 18px;
+    margin: 15px 0 5px;
+}
+
+.service-card p {
+    background: #ffcc00;
+    color: #fff;
+    display: inline-block;
+    padding: 3px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.sub-text {
+    display: block;
+    margin-top: 10px;
+    font-size: 13px;
+    color: #666;
+}
+/* FOOTER STYLE */
+.site-footer {
+    background-color: #f9f9f9; /* Màu nền sáng để tách biệt với thân trang đen */
+    color: #333;
+    padding-top: 20px;
+    font-size: 13px;
+    border-top: 3px solid #4a0e0e;
+}
+
+.footer-top {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer-nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.footer-nav a:hover { color: #4a0e0e; }
+
+.footer-main {
+    padding-bottom: 30px;
+}
+
+.footer-info {
+    display: grid;
+    grid-template-columns: 150px 1.5fr 1.5fr 1.5fr;
+    gap: 30px;
+}
+
+.footer-logo {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.social-icons img {
+    width: 25px;
+    margin-right: 10px;
+    filter: grayscale(100%);
+    transition: 0.3s;
+}
+
+.social-icons img:hover { filter: none; }
+
+.info-text p {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.footer-links a {
+    color: #666;
+    text-decoration: none;
+}
+
+/* KHỐI ĐĂNG KÝ EMAIL */
+.footer-subscribe h4 {
+    font-size: 16px;
+    color: #000;
+}
+
+.subscribe-box {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.subscribe-box input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.subscribe-box button {
+    background-color: #4b7bec; /* Màu xanh giống mẫu */
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.footer-bottom {
+    background-color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    border-top: 1px solid #eee;
+    color: #999;
+}
